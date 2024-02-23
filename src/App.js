@@ -16,18 +16,22 @@ function App() {
 
     const calculate = () => {
         let resultt;
+        resultt = eval(display);
        
             if (display.trim() === '') {
                 setResult("Error")
             }
-            resultt = eval(display);
-            if (!isFinite(resultt)) {
+            else if (isNaN(resultt)) {
+              setResult("NaN")
+          }
+           else if (!isFinite(resultt)) {
                 setResult("Infinity")
             }
-            if (isNaN(resultt)) {
-                setResult("NaN")
+            
+            else{
+              setResult(resultt.toString());
             }
-            setResult(resultt.toString());
+           
         
     };
 
